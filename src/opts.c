@@ -82,7 +82,7 @@ char optval_uint (char long_form, const char *opt_name, char *str, unsigned int 
 void scan_opts (const struct ext_option_t *ext_options,
     char store, char *shortopts, int *shorts_size, struct option *longopts, int *longs_size)
 {
-    int short_i = 0, long_i = 0, count;
+    int short_i = 0, long_i = 0;
     const struct ext_option_t *opt;
 
     opt = ext_options;

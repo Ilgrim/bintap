@@ -30,10 +30,11 @@
    0000      uint8  type      00 = Program, 03 = Bytes
    0001-000A uint8  name[10]  space padded block's name
    000B-000C uint16 length    Program, Bytes: length of a block
-   000D-000E uint16 param1    Program: BASIC start line
+   000D-000E uint16 param1    Program: BASIC start line (0-9999)
+                              (if no auto start - 32768)
                               Bytes: start address
    000F-0010 uint16 param2    Program: BASIC program length
-                              (in no variables - equals to `length'),
+                              (if no variables - equals to `length'),
                               Bytes: unused, equals to 32768. */
 
 /* Standard BASIC tape block's header structure */
@@ -70,11 +71,10 @@ char *tap_get_cur_ptr (TAPFILE *self);
 void tap_put_char (TAPFILE *self, char c);
 void tap_put_data (TAPFILE *self, char *src, unsigned int len);
 void tap_skip_data (TAPFILE *self, unsigned int len);
-void tap_put_header (TAPFILE *self, char type, char *name, unsigned int length, unsigned int param1, unsigned int param2);
-void tap_put_program_header (TAPFILE *self, char *name,
-    unsigned int length, unsigned int start_line, unsigned int vars_off);
-void tap_put_bytes_header (TAPFILE *self, char *name,
-    unsigned int length, unsigned int load_addr, unsigned int extra_addr);
+void tap_put_program_header (TAPFILE *self, char *name, unsigned int length,
+    unsigned int start_line, unsigned int vars_off);
+void tap_put_bytes_header (TAPFILE *self, char *name, unsigned int length,
+    unsigned int load_addr, unsigned int extra_addr);
 void tap_end_block (TAPFILE *self);
 void tap_end (TAPFILE *self);
 unsigned int tap_get_size (TAPFILE *self);

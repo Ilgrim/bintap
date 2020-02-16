@@ -225,7 +225,7 @@ const struct ext_option_t ext_options[] =
     { 0,    "ink-color",        required_argument,  setopt_color,       &opt_ink_color, 0 },
     { 0,    "nph",              no_argument,        setopt_char,        &opt_print_headers, 0 },
     { 0,    "no-print-headers", no_argument,        setopt_char,        &opt_print_headers, 0 },
-    { 0, NULL, 0, NULL, 0}   /* end mark */
+    { 0, NULL, 0, NULL, NULL, 0 }   /* end mark */
 };
 
 char *shortopts = NULL;
@@ -251,6 +251,7 @@ char auto_output_filename (char *dest, const char *src, unsigned int n, const ch
         count++;
     }
     strcat (dest, ext);
+    return 0;
 }
 
 void get_tape_header_name (char *dest, char *src)
@@ -449,7 +450,8 @@ int main (int argc, char **argv)
         fo_name[MAX_FILENAME_LEN - 1] = '\0';
     }
     else if (opt_auto_name)
-        auto_output_filename (fo_name, opt_input, MAX_FILENAME_LEN - 1, DEF_FILE_EXT);
+        if (auto_output_filename (fo_name, opt_input, MAX_FILENAME_LEN - 1, DEF_FILE_EXT))
+            return 1;
 
     fi = fopen (opt_input, "rb");
     if (!fi)
