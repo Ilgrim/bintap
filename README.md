@@ -10,23 +10,27 @@ Public domain (see [LICENSE](LICENSE) file).
 
 See [AUTHORS](AUTHORS) file.
 
-## Compile
+## Build using GNU/Linux environment
+
+### Compile
 
 ```sh
 cd src
 make
 ```
 
-Clean: 
+### Install
 
-```sh
-make clean
-```
-
-## Install
+As *root* or using `sudo`:
 
 ```sh
 cp bintap /usr/local/bin
+```
+
+### Clean
+
+```sh
+make clean
 ```
 
 ## Usage
