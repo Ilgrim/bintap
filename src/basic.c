@@ -111,7 +111,18 @@ void bas_put_int_compact (BASPROG *self, int i)
     else
     {
         bas_put_ascii (self, SYM_VAL "\"");
-        bas_put_int_ascii (self, n);
+        if (!(n % 10000))
+        {
+            bas_put_int_ascii (self, n / 10000);
+            bas_put_ascii (self, "e4");
+	}
+        else if (!(n % 1000))
+        {
+            bas_put_int_ascii (self, n / 1000);
+            bas_put_ascii (self, "e3");
+	}
+        else
+            bas_put_int_ascii (self, n);
         bas_put_char (self, '"');
     }
 }
