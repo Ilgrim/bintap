@@ -71,15 +71,9 @@ All numbers are decimal or hexadecimal (prefixed with `0x' or `0X').
 ## Links
 
 * [GNU Operating System](https://www.gnu.org/)
-
 * [GNU Core Utilities](https://www.gnu.org/software/coreutils/) ([package](https://pkgs.org/download/coreutils))
-
 * [GNU Make](https://www.gnu.org/software/make/) - utility for directing compilation ([package](https://pkgs.org/download/make))
-
 * [GNU Compiler Collection](https://www.gnu.org/software/gcc/) ([package](https://pkgs.org/download/gcc))
-
 * [GNU Standards](http://savannah.gnu.org/projects/gnustandards) - GNU coding and package maintenance standards ([package](https://pkgs.org/download/gnu-standards))
-
 * [Description of TAP file format on faqwiki.zxnet.co.uk](https://faqwiki.zxnet.co.uk/wiki/TAP_format)
-
 * [ZX-Spectrum utilities](https://zxspectrumutils.sourceforge.io/) - ZX-Spectrum emulators format utilities.
